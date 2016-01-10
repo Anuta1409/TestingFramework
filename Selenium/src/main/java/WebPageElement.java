@@ -1,19 +1,35 @@
+
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
+import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.NoSuchElementException;
+
 /**
- * Created by Anna on 05.01.2016.
+ * Main web-page attributes and actions on them
  */
 public class WebPageElement {
+    WebDriverSettings driver = new WebDriverSettings();
+    WebDriver driverSetting = driver.FireFoxWebDriver();
 
-    WebDriver driver = new FirefoxDriver();
     @Rule
-    public ErrorCollector errCollector = new ErrorCollector();
+    ErrorCollector errorCollector = new ErrorCollector();
 
     private String pageURL;
+    private String getElement;
+    private Object isElementPresent;
+
+    public String getGetElement() {
+        return getElement;
+    }
+
+    public void setGetElement(String getElement) {
+        this.getElement = getElement;
+    }
 
     public String getPageURL(String s) {
         return pageURL;
@@ -23,20 +39,43 @@ public class WebPageElement {
         this.pageURL = pageURL;
     }
 
-    @Test
+    @Before
     public void setURL(String pageURL) {
         try {
-            driver.get(pageURL);
+            driverSetting.getCurrentUrl();
             //запись в логи
-        } catch (Throwable t) {
+        } catch (Exception e) {
             System.out.println("Not correct URL");
-            errCollector.addError(t);
+            errorCollector.addError(e);
             //запись в логи
         }
     }
 
     @Test
-    public 
+    //Check element
+    private boolean isElementPresent(String by) {
+        try {
+            driverSetting.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
 
+    public void getTextFieldSendKeys(String by,String value) {
+        WebPageElement webElementPosition = new WebPageElement();
+        boolean elementPresentPosition = webElementPosition.isElementPresent(by);
+        if (elementPresentPosition = true) {
+            driverSetting.findElement(By.xpath(by)).sendKeys(value);
+        } else {
+            System.out.println("Error");
+        }
+    }
 
+    @Test
+    public void textFieldCharactersNumber(String textField, int minCharactersCounter, int maxCharactersCounter) {
+        if ((minCharactersCounter < textField.length()) || (textField.length() <= maxCharactersCounter)){}
+
+    }
+//setTextFieldValueNecessary
 }
