@@ -47,13 +47,14 @@ public class WebPageElement {
         } catch (Exception e) {
             System.out.println("Not correct URL");
             errorCollector.addError(e);
+            return;
             //запись в логи
         }
     }
 
     @Test
     //Check element
-    private boolean isElementPresent(String by) {
+    private boolean isElementPresent(By by) {
         try {
             driverSetting.findElement(by);
             return true;
@@ -62,11 +63,11 @@ public class WebPageElement {
         }
     }
 
-    public void getTextFieldSendKeys(String by,String value) {
+    public void getTextFieldSendKeys(By by,String value) {
         WebPageElement webElementPosition = new WebPageElement();
         boolean elementPresentPosition = webElementPosition.isElementPresent(by);
         if (elementPresentPosition = true) {
-            driverSetting.findElement(By.xpath(by)).sendKeys(value);
+            driverSetting.findElement(by).sendKeys(value);
         } else {
             System.out.println("Error");
         }

@@ -8,15 +8,16 @@ import org.openqa.selenium.WebDriver;
  */
 public class HomeRosetkaPage {
 
-    WebDriverSettings driver = new WebDriverSettings();
-    WebDriver webDriver = driver.FireFoxWebDriver();
 
-    public HomeRosetkaPage(WebDriver driver){
-        this.webDriver = driver;
+    private  WebDriver webDriver;
+
+    public HomeRosetkaPage(WebDriver webDriver){
+        this.webDriver = webDriver;
     }
 
     public ResultSearchPage search( String searchQueries) {
-        webDriver.findElement(By.xpath(".//*[@id='search']/form/div[1]/div[2]/input")).sendKeys(searchQueries);
+        By by = By.xpath(".//*[@id='search']/form/div[1]/div[2]/input");
+        webDriver.findElement(by).sendKeys(searchQueries);
         webDriver.findElement(By.xpath(".//*[@id='search']/form/span/span")).click();
         return new ResultSearchPage(webDriver);
     }
