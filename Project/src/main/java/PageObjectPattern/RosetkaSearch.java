@@ -20,9 +20,10 @@ public class RosetkaSearch {
 
     @Before
     public void setUp(){
+
         webDriver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         //webDriver.get("http://bt.rozetka.com.ua/");
-        HTMLElements.setURL(webDriver,"http://bt.rozetka.com.ua/");
+       // HTMLElements.setURL(webDriver,"http://bt.rozetka.com.ua/","http://bt.rozetka.com.ua/");
     }
 
     @After
@@ -38,6 +39,7 @@ public class RosetkaSearch {
        ResultSearchPage resultSearchPage = homeRosetkaPage.search("Сковорода");//Новая страница с результатами запроса
        assertTrue(resultSearchPage.getFirstLink().contains("Сковороды"));
     }
+
 
 
 }

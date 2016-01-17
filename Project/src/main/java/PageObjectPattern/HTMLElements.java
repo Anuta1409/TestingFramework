@@ -1,5 +1,6 @@
 package PageObjectPattern;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,20 +18,41 @@ public class HTMLElements {
 
     enum webElementAccess{byXpath, byID, byClass};
 
-
-    public static void setURL(WebDriver webDriver, String pageURL) {
+    public static void isURLPresent(WebDriver webDriver, String pageURL, String RequirementPageURL, String linkTag, String  by) {
             webDriver.get(pageURL);
+            String ActualUrl =  HTMLElements.getHTMLElement(webDriver,by,linkTag).getAttribute("content");
+            Assert.assertEquals(ActualUrl,RequirementPageURL);
+        //or better to use true/false???
+//            if(ActualUrl.equals(RequirementPageURL)){
+//                return true;
+//            }else{
+//                return false;
+//            }
+
     }
 
+//    public static void setURL(WebDriver webDriver, String pageURL, String RequirementPageURL) {
+//       try {
+//           if (isURLPresent(webDriver, pageURL, RequirementPageURL)) {
+//               webDriver.get(pageURL);
+//           }
+//       }catch (NoSuchElementException e){
+//           System.out.println(e.toString());
+//       }
+//    }
+
+
+
     public static WebElement getHTMLElement(WebDriver webDriver, String by, String value) {
+
         webElementAccess access = webElementAccess.valueOf(by);
         WebElement el;
         switch (access) {
             case byXpath: {
-                el = webDriver.findElement(By.xpath(value));
+                    el = webDriver.findElement(By.xpath(value));
             } break;
             case byID: {
-                el =  webDriver.findElement(By.id(value));
+                el =  webDriver.findElement(By.id(value));;
             }break;
             case byClass: {
                 el =  webDriver.findElement(By.className(value));
@@ -43,7 +65,7 @@ public class HTMLElements {
     }
 
     //Check element
-    private static boolean isElementPresent(WebDriver webDriver, String by, String value) { //value - путь к элементу xpath,id,class
+    public static boolean isElementPresent(WebDriver webDriver, String by, String value) { //value - путь к элементу xpath,id,class
         try {
             WebElement e = getHTMLElement(webDriver,by,value);
             return (e != null);
@@ -52,7 +74,7 @@ public class HTMLElements {
         }
     }
 
-    private static boolean isElementPresent(WebDriver webDriver,By by) {
+    public static boolean isElementPresent(WebDriver webDriver,By by) {
         try {
             WebElement e = webDriver.findElement(by);
             return (e != null);
@@ -60,15 +82,6 @@ public class HTMLElements {
             return false;
         }
     }
-//    public static void getTextFieldSendKeys(WebDriver webDriver,By by,String value) {
-//        try {
-//            if (isElementPresent(webDriver, by)) {
-//                webDriver.findElement(by).sendKeys(value);
-//            }
-//        }catch(NoSuchElementException e){
-//            System.out.println(e.toString());
-//        }
-//    }
 
     public static void setTextfield(WebDriver webDriver,By by, String fieldValue, boolean clear) {
         WebElement element = webDriver.findElement(by);
@@ -104,14 +117,26 @@ public class HTMLElements {
         }
     }
 
-//    public static void clearTextField(WebDriver webDriver,By by){
-//        try {
-//            if (isElementPresent(webDriver, by)) {
-//                webDriver.findElement(by).clear();
-//            }
-//        }catch(NoSuchElementException e){
-//            System.out.println(e.toString());
-//        }
-//    }
+    public static void RadioButtonClick(WebDriver webDriver, String by, String value, String value2){
+        // проверка на одинаковые значения value???
+           HTMLElements.getHTMLElement(webDriver, by, value).isEnabled();
+           HTMLElements.getHTMLElement(webDriver, by, value).click();
+           //HTMLElements.getHTMLElement(webDriver, by, value2);
+
+          // HTMLElements.getHTMLElement(webDriver, by, value2).isSelected();
+    }
+
+    public static void CheckBoxClick(){}
+
+
+    public static void selectFromDropDownList(){
+
+    }
+
+    public static void downloadPhoto(){
+        
+    }
+
+
 
 }
