@@ -1,4 +1,4 @@
-package PageObjectPattern;
+п»їpackage PageObjectPattern;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -23,6 +23,7 @@ public class WebElementsTest {
     String linkTag = "/html/head/meta[@content = \"https://www.facebook.com/\"]";
     String fieldValue = "tesValue";
     String fieldValue2 = "tesValue2";
+    String CheckBoxVal = ".//*[@id='persist_box']";
 
    // boolean clear;
 
@@ -59,17 +60,17 @@ public class WebElementsTest {
 //        webDriver.get(URLValue);
 //        HTMLElements.setTextfield(webDriver, "byXpath", ".//*[@id='u_0_1']", fieldValue, false);
 //        HTMLElements.setTextfield(webDriver, "byXpath", ".//*[@id='u_0_1']", fieldValue2, true);
-//        //String t = webDriver.findElement(By.xpath(".//*[@id='u_0_1']")).getText();//Как проверить установлено ли поле?
+//        //String t = webDriver.findElement(By.xpath(".//*[@id='u_0_1']")).getText();//
 ////        System.out.println(t);
 //       Assert.assertNotEquals(fieldValue2, fieldValue);
 //    }
 
-    @Test
-    public void testRadioButton() throws InterruptedException {
-       // webDriver.get(URLValue);
-        HTMLElements.RadioButtonClick(webDriver, "byXpath", ".//*[@id='u_0_d']",".//*[@id='u_0_e']");
-        HTMLElements.getHTMLElement(webDriver, "byXpath", ".//*[@id='u_0_e']").isSelected();
-    }
+//    @Test
+//    public void testRadioButton() throws InterruptedException {
+//       // webDriver.get(URLValue);
+//        HTMLElements.RadioButtonClick(webDriver, "byXpath", ".//*[@id='u_0_d']",".//*[@id='u_0_e']");
+//        HTMLElements.getHTMLElement(webDriver, "byXpath", ".//*[@id='u_0_e']").isSelected();
+//    }
 //    @Test
 //    public void testRadioButton2() {
 //        // webDriver.get(URLValue);
@@ -80,6 +81,15 @@ public class WebElementsTest {
 //    public  void  closeBrowser(){
 //        webDriver.close();
 //    }
+//
+//    @Test
+//    public void  testCheckBox(){
+//        HTMLElements.CheckBoxClick(webDriver,"byXpath", CheckBoxVal);
+//    }
 
+    @Test
+    public void testSelectFromDropDown(){
+        HTMLElements.selectFromDropDownList(webDriver,"byXpath", ".//*[@id='month']","Mar");
+    }
 
 }

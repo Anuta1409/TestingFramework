@@ -21,7 +21,7 @@ public class main {
 
 
 
-        HTMLElements.isURLPresent(webDriver, value,reqValue,linkTag,"byXpath");
+        HTMLElements.setURL(webDriver, value,reqValue,"byXpath",linkTag);
         //String ActualUrl =  HTMLElements.getHTMLElement(webDriver,"byXpath",linkTag).getAttribute("content");
         //System.out.println(ActualUrl);
     }

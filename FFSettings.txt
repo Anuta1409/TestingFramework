@@ -1,0 +1,18 @@
+Создать фф профайл вручную
+http://www.toolsqa.c...irefox-profile/
+Настоить профайл
+http://techyworks.bl...g-selenium.html
+Запусить код с созданым профайлом
+http://stackoverflow...ass-html-author
+
+
+final Select droplist = new Select(driver.findElement(By
+                        .xpath("xpath-expression")));
+                List<WebElement> oSize = droplist.getOptions();
+                int iListSize = oSize.size();
+                System.out.println("No.of list size is ......" + iListSize);
+                for (int i = 0; i < iListSize; i++) {
+                    System.out.println("i value is..." + i);
+                    droplist.selectByIndex(i);
+                    String sValue = droplist.getOptions().get(i).getText();
+                    System.out.println(sValue);

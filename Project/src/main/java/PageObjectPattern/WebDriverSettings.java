@@ -48,16 +48,15 @@ public class WebDriverSettings {
     }
 
     public WebDriver ChromeWebDriwer(){
-        System.setProperty("webdriver.chrome.driver","D:\\Ukrainian_IT_School\\FinalWork\\libraries\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","..\\Project\\resources\\chromedriver.exe");
         WebDriver ChromeDriver = new ChromeDriver();
         return ChromeDriver;
     }
 
     public WebDriver IEWebDriver(){
-        System.setProperty("webdriver.ie.driver","D:\\Ukrainian_IT_School\\FinalWork\\libraries\\IEDriverServer.exe");
+        System.setProperty("webdriver.ie.driver","..\\Project\\resources\\IEDriverServer.exe");
         WebDriver IEDriver = new InternetExplorerDriver();
         return IEDriver;
     }
 
-    //Edge!!!!!!!!!!
 }
