@@ -14,5 +14,6 @@
     <orderEntry type="library" name="selenium-server-standalone-2.48.2" level="application" />
     <orderEntry type="library" name="junit:junit:4.12" level="application" />
     <orderEntry type="library" name="dom4j:dom4j:1.6.1" level="application" />
+    <orderEntry type="library" name="org.seleniumhq.selenium:selenium-server:2.49.0" level="application" />
   </component>
 </module>

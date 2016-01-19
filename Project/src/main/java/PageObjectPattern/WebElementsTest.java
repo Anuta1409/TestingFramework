@@ -1,4 +1,7 @@
-﻿package PageObjectPattern;
+package PageObjectPattern;
+
+import PageObjectPattern.HTMLElements;
+import WebDriverSettings.StartBrowser;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -13,8 +16,7 @@ import org.openqa.selenium.WebElement;
  */
 public class WebElementsTest {
 
-    WebDriverSettings driver = new WebDriverSettings();
-    WebDriver webDriver = driver.ChromeWebDriwer();
+    WebDriver webDriver = StartBrowser.startWebDriver("chrome");
 
     //Test data
     String URLValue = "https://www.facebook.com";
@@ -89,7 +91,7 @@ public class WebElementsTest {
 
     @Test
     public void testSelectFromDropDown(){
-        HTMLElements.selectFromDropDownList(webDriver,"byXpath", ".//*[@id='month']","Mar");
+        HTMLElements.selectFromDropDownList(webDriver, "byXpath", ".//*[@id='month']", "Mar");
     }
 
 }

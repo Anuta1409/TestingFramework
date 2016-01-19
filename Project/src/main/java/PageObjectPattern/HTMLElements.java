@@ -1,13 +1,12 @@
-п»їpackage PageObjectPattern;
+package PageObjectPattern;
 
+import WebDriverSettings.StartBrowser;
+import org.openqa.selenium.WebDriver;
 import org.junit.Assert;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -18,6 +17,8 @@ import org.openqa.selenium.support.ui.Select;
 public class HTMLElements {
 
     enum webElementAccess{byXpath, byID, byClass};
+    WebDriver webDriver = StartBrowser.startWebDriver("chrome");
+
 //
 //    public static void isURLPresent(WebDriver webDriver, String pageURL, String RequirementPageURL, String linkTag, String  by) {
 //            webDriver.get(pageURL);
@@ -33,7 +34,7 @@ public class HTMLElements {
  //   }
 
 
-//СѓСЃС‚Р°РЅРѕРІРєР° Рё РїРѕР»СѓС‡РµРЅРёРµ Р°РєС‚СѓР°Р»СЊРЅРѕРіРѕ СѓСЂР»Р° СЃС‚СЂР°РЅРёС†С‹: pageURL - СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹Р№ СѓСЂР» СЃС‚СЂР°РЅРёС†С‹, RequirementPageURL - РЅРµРѕР±С…РѕРґРёРјС‹Р№ СѓСЂР», by - РґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РґРѕСЃС‚СѓРїР°, linkTag - РїСѓС‚СЊ Рє СЌР»РµРјРµРЅС‚Сѓ СЃС‚СЂР°РЅРёС†С‹)
+//установка и получение актуального урла страницы: pageURL - установленный урл страницы, RequirementPageURL - необходимый урл, by - дентификатор доступа, linkTag - путь к элементу страницы)
     public static void setURL(WebDriver webDriver, String pageURL, String RequirementPageURL,  String  by, String linkTag) {
         webDriver.get(pageURL);
         if (isElementPresent(webDriver, by, linkTag)==true) {
@@ -60,7 +61,7 @@ public class HTMLElements {
 //    }
 
 
-// РґРѕСЃС‚СѓРї Рє СЌР»РµРјРµРЅС‚Р°Рј СЃС‚СЂР°РЅРёС†С‹ РїРѕ СЂР°Р·Р»РёС‡РЅС‹Рј Р°РєСЃРµСЃРѕСЂР°Рј
+// доступ к элементам страницы по различным аксесорам
     public static WebElement getHTMLElement(WebDriver webDriver, String by, String value) {
 
         webElementAccess access = webElementAccess.valueOf(by);
@@ -82,7 +83,7 @@ public class HTMLElements {
         return el;
     }
 
-    //РјРµС‚РѕРґ РїСЂРѕРІРµСЂРєРё РЅР° РЅР°Р»РёС‡РёРµ РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅР° СЃС‚СЂР°РЅРёС†Рµ
+    //метод проверки на наличие необходимого элемента на странице
     public static boolean isElementPresent(WebDriver webDriver, String by, String value) { //value - xpath,id,class
         try {
             WebElement e = getHTMLElement(webDriver,by,value);
@@ -101,7 +102,7 @@ public class HTMLElements {
         }
     }
 
-    // СѓСЃС‚Р°РЅРѕРІРєР° СЌР»РµРјРµРЅС‚Р° "С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ" РµСЃР»Рё РѕРЅ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ РЅР° СЃС‚СЂР°РЅРёС†Рµ
+    // установка элемента "текстовое поле" если он присутствует на странице
     public static void setTextfield(WebDriver webDriver,By by, String fieldValue, boolean clear) {
         WebElement element = webDriver.findElement(by);
         try {
@@ -137,7 +138,7 @@ public class HTMLElements {
     }
 
 
-    // РјРµС‚РѕРґ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё СЂР°РґРёРѕРєРЅРѕРїРєРё, РµСЃР»Рё РѕРЅР° РґРѕСЃС‚СѓРїРЅР°+ РЅРµРѕР±С…РѕРґРёРјРѕ СЂРµР°Р»РёР·РѕРІР°С‚СЊ РїСЂРѕРІРµСЂРєСѓ С‡С‚Рѕ СЂР°РґРёРѕРєРЅРѕРїРєР° СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅР° Рё РѕРґРЅР° РµРґРёРЅСЃС‚РІРµРЅРЅР°СЏ
+    // метод для установки радиокнопки, если она доступна+ необходимо реализовать проверку что радиокнопка установленна и одна единственная
     public static void RadioButtonClick(WebDriver webDriver, String by, String value){
         // radio button has unique value???
            HTMLElements.getHTMLElement(webDriver, by, value).isEnabled();
@@ -145,7 +146,7 @@ public class HTMLElements {
     }
 
 
-    // РјРµС‚РѕРґ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё С‡РµРєР±РѕРєСЃР°, РµСЃР»Рё РѕРЅ РґРѕСЃС‚СѓРїРµРЅ+РїСЂРѕРІРµСЂРєР°, С‡С‚Рѕ С‡РµРєР±РѕРєСЃ СѓСЃС‚Р°РЅРѕРІР»РµРЅ (РЅРµ Р·РЅР°СЋ РєР°Рє СЂРµР°Р»РёР·РѕРІР°С‚СЊ РјРЅРѕР¶РµСЃС‚РІРµРЅРЅС‹Р№ РІС‹Р±РѕСЂ)
+    // метод для установки чекбокса, если он доступен+проверка, что чекбокс установлен (не знаю как реализовать множественный выбор)
     public static void CheckBoxClick(WebDriver webDriver,String by, String value){
         if ((HTMLElements.getHTMLElement(webDriver, by,value)).isEnabled()){
              HTMLElements.getHTMLElement(webDriver, by, value).click();
@@ -160,7 +161,7 @@ public class HTMLElements {
     }
 
 
-    // РІС‹Р±РѕСЂ Р·РЅР°С‡РµРЅРёСЏ РёР· РґСЂРѕРїРґР°СѓРЅ РµР»РµРјРµРЅС‚Р°+(РЅРµ Р·РЅР°СЋ РєР°Рє СЃРґРµР»Р°С‚СЊ РјРЅРѕР¶РµСЃС‚РІРµРЅРЅС‹Р№ РІС‹Р±РѕСЂ РµСЃР»Рё РѕРЅ РІРѕР·РјРѕР¶РµРЅ)
+    // выбор значения из дропдаун елемента+(не знаю как сделать множественный выбор если он возможен)
     public  static void selectFromDropDownList(WebDriver webDriver, String by, String value,String dropDownValue){
         Select droplist1 = new Select(HTMLElements.getHTMLElement(webDriver,by,value));
         droplist1.selectByVisibleText(dropDownValue);
@@ -169,7 +170,7 @@ public class HTMLElements {
     }
 
     public  void downloadPhoto(){
-        // РЅСѓ Р° СЌС‚Рѕ РїРѕРєР° С‚РµРјРЅС‹Р№ Р»РµСЃ!
+        // ну а это пока темный лес!
         
     }
 
