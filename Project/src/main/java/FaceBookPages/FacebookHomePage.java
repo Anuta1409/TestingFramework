@@ -6,29 +6,32 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.concurrent.TimeUnit;
+
 /**
- * Created by Anna on 19.01.2016.
+ *
  */
 public class FacebookHomePage {
 
-    WebDriver driver = StartBrowser.startWebDriver("chrome");
+    WebDriver driver = StartBrowser.startWebDriver("firefox");
 
     public FacebookHomePage(String url) {
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
-//    public UsersEventPage login(String login, String password) {
-//
-//        driver.findElement(By.xpath(".//*[@id='email']")).sendKeys(login);
-//        driver.findElement(By.xpath(".//*[@id='pass']")).sendKeys(password);
-//        driver.findElement(By.xpath(".//*[@id='persist_box']")).click();
-//        driver.findElement(By.xpath(".//*[@id='u_0_l']")).click();
-//
-//        return new UsersEventPage(driver);
-//    }
+    public WelcomePage loginSuccess(String login, String password) {
 
-    public ErrorLoginPage login(String login, String password) {
+        driver.findElement(By.xpath(".//*[@id='email']")).sendKeys(login);
+        driver.findElement(By.xpath(".//*[@id='pass']")).sendKeys(password);
+        driver.findElement(By.xpath(".//*[@id='persist_box']")).click();
+        driver.findElement(By.xpath(".//*[@id='u_0_l']")).click();
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+
+        return new WelcomePage(driver);
+    }
+
+    public ErrorLoginPage loginError(String login, String password) {
 
         driver.findElement(By.xpath(".//*[@id='email']")).sendKeys(login);
         driver.findElement(By.xpath(".//*[@id='pass']")).sendKeys(password);

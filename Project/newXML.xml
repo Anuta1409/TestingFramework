@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsSuite name="FacebookLogin" methodName="FaceBookLogin">
+  <testCase id="1" testCaseName="PositiveFaceBookLogin" TestSuiteID="1">
+    <steps>
+      <step stepName="stepName0">
+        <parameters>
+          <parameter id="0">
+            <parameterName>Name1</parameterName>
+            <parameterType>boolean</parameterType>
+            <parameterValue>true</parameterValue>
+          </parameter>
+        </parameters>
+      </step>
+    </steps>
+    <steps>
+      <step stepName="stepName1">
+        <parameters>
+          <parameter id="1">
+            <parameterName>Name1</parameterName>
+            <parameterType>boolean</parameterType>
+            <parameterValue>true</parameterValue>
+          </parameter>
+        </parameters>
+      </step>
+    </steps>
+    <steps>
+      <step stepName="stepName2">
+        <parameters>
+          <parameter id="2">
+            <parameterName>Name1</parameterName>
+            <parameterType>boolean</parameterType>
+            <parameterValue>true</parameterValue>
+          </parameter>
+        </parameters>
+      </step>
+    </steps>
+  </testCase>
+</testsSuite>

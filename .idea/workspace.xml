@@ -2,6 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="918957cd-a7a7-49f9-8d7f-f1c59b7b51a4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/target/classes/FaceBookPages/ConfermMailPage.class" afterPath="$PROJECT_DIR$/Project/target/classes/FaceBookPages/ConfermMailPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/target/classes/FaceBookPages/FacebookHomePage.class" afterPath="$PROJECT_DIR$/Project/target/classes/FaceBookPages/FacebookHomePage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/target/classes/WebDriverSettings/StartBrowser.class" afterPath="$PROJECT_DIR$/Project/target/classes/WebDriverSettings/StartBrowser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/target/classes/TestFacebook/TestLogin.class" afterPath="$PROJECT_DIR$/Project/target/classes/TestFacebook/TestLogin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/target/classes/TestFacebook/TestSignUp.class" afterPath="$PROJECT_DIR$/Project/target/classes/TestFacebook/TestSignUp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/target/classes/FaceBookPages/UsersEventPage.class" afterPath="$PROJECT_DIR$/Project/target/classes/FaceBookPages/UsersEventPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/src/main/java/FaceBookPages/FacebookHomePage.java" afterPath="$PROJECT_DIR$/Project/src/main/java/FaceBookPages/FacebookHomePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/ProjectPageObjectPattern.iml" afterPath="$PROJECT_DIR$/Project/ProjectPageObjectPattern.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/src/main/java/WebDriverSettings/StartBrowser.java" afterPath="$PROJECT_DIR$/Project/src/main/java/WebDriverSettings/StartBrowser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/src/main/java/TestFacebook/TestLogin.java" afterPath="$PROJECT_DIR$/Project/src/main/java/TestFacebook/TestLogin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/src/main/java/FaceBookPages/UsersEventPage.java" afterPath="$PROJECT_DIR$/Project/src/main/java/FaceBookPages/UsersEventPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/pom.xml" afterPath="$PROJECT_DIR$/Project/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JUnit/.idea/workspace.xml" afterPath="$PROJECT_DIR$/JUnit/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/.idea/workspace.xml" afterPath="$PROJECT_DIR$/Project/.idea/workspace.xml" />
     </list>
     <ignored path="FinalWork.iws" />
@@ -61,8 +75,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -161,19 +173,17 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageObjectPattern" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
