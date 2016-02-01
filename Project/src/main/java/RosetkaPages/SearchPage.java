@@ -55,6 +55,48 @@ public class SearchPage {
         driver.findElement(By.xpath(".//*[@id='sort_view']/div/ul/li[2]/a")).click();
         return new SearchPage(driver);
     }
+
+    public void addToWhishList(String wishListName,String userEmail,String password) {
+        driver.findElement(By.xpath(".//*[@id='wishlist-popup-6370162']/img")).click();
+         try {
+            //Switch to the Popup Browser Window
+            driver.switchTo().window("Добавление в список желаний");
+            driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+
+        } catch (NoSuchWindowException e) {
+            e.printStackTrace();
+        }
+         
+        WebElement element = driver.findElement(By.xpath("*//div[1]//form/div/div[1]/input"));
+        element.clear();
+        element.sendKeys(wishListName);                
+        driver.findElement(By.xpath("*//div[1]//form/div/div[2]/div[1]/input")).sendKeys(userEmail);
+        driver.findElement(By.xpath("*//div[1]//form/div/div[2]/div[1]/div[2]/span/button")).click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(SearchPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        driver.findElement(By.xpath("*//div[1]//form/div/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/input")).sendKeys(password);
+        driver.findElement(By.xpath(".//*[@id='signin']")).click();
+         
+        try {
+            //Switch to the Popup Browser Window
+            driver.switchTo().window("Добавление в список желаний");
+            driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+
+        } catch (NoSuchWindowException e) {
+            e.printStackTrace();
+        }
+        
+        driver.findElement(By.xpath("*//div[1]//form/div/div[3]/span/button")).click();
+        
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(SearchPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     
     
