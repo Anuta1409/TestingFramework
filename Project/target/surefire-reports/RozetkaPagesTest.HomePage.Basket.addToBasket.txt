@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: RozetkaPagesTest.HomePage.Basket.addToBasket
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 78.265 sec

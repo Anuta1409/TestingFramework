@@ -8,7 +8,7 @@ import org.junit.runners.Suite;
  */
 
     @RunWith(Suite.class)
-    @Suite.SuiteClasses({})
+    @Suite.SuiteClasses({RozetkaPagesTest.HomePage.Basket.addToBasket.class, RozetkaPagesTest.HomePage.Basket.DeleteFromBasket.class})
     public class Runner {
 }
 

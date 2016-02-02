@@ -1,30 +1,28 @@
+package RozetkaPagesTest.HomePage.Basket;
 
-package RozetkaPagesTest.HomePage.addToWishList;
-
+import RosetkaPages.BasketPopup;
+import RosetkaPages.GoodsPage;
 import RosetkaPages.HomePage;
-import RosetkaPages.SearchPage;
 import RozetkaPagesTest.HomePage.Login.PositiveLoginTest;
-import WebDriverSettings.StartBrowser;
+import RozetkaPagesTest.HomePage.WebDriverSettings;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.junit.Assert;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AddToWishListAsUnregisterUser {
+
+public class addToBasket {
     
-    
-    WebDriver driver = StartBrowser.startWebDriver("firefox");
-    
+    WebDriver driver = WebDriverSettings.startWebDriver("firefox");
+   
     @Before
     public void StartTest(){
         HomePage homePage = new HomePage(driver);
         homePage.openHomePage("http://rozetka.com.ua/");
-        
-        
     }
     
    @After
@@ -38,13 +36,13 @@ public class AddToWishListAsUnregisterUser {
     } 
     
     @Test
-    public void addToWishListTest(){
+    public void addToBacketPage(){
         HomePage homePage = new HomePage(driver);
-        SearchPage searchPage = homePage.searchField("iPhone");
-        searchPage.addToWhishList("TestWishList", "chumaktest14091991@gmail.com", "12345678");
-        String ActualResult = driver.findElement(By.xpath("html/body/div[1]/div/div/div/div/h2")).getText();
-        String ExpectedResult = "Товар добавлен в список желаний";
-        Assert.assertEquals(ExpectedResult, ActualResult);
+        BasketPopup basket = homePage.addToBasket("chumaktest14091991@gmail.com", "12345678","iPhone");
+        basket.GoToPopup();
+        Assert.assertTrue(driver.findElement(By.xpath(".//*[@id='cart-popup']/div/div[1]/div[2]/div/div[2]/div[2]/div[1]/a")).getText().contains("iPhone"));
     }
+    
+    
     
 }

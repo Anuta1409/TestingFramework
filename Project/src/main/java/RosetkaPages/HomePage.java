@@ -115,8 +115,27 @@ public class HomePage {
     
        return new SearchPage(driver);
    }
-    
-    
+   
+   public BasketPopup addToBasket(String email, String password, String searchQuery){
+       HomePage login = new HomePage(driver);
+       login.loginGoToProfile(email, password);
+       login.closePopup();
+       login.searchField(searchQuery);
+       driver.findElement(By.xpath(".//*[@id='block_with_goods']/div[1]/div[3]/div[1]/div/div[1]/div[2]/div[6]/div/div/div/form/span/button")).click();
+      
+       try {
+       
+        //Switch to the Popup Browser Window
+        driver.switchTo().window("Корзина");
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+
+        } catch (NoSuchWindowException e) {
+            e.printStackTrace();
+        }
+       
+       return new BasketPopup(driver);
+       
+   }
     
 }
     
