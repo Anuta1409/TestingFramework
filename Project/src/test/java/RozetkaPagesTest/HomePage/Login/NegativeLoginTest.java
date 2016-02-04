@@ -1,7 +1,7 @@
 package RozetkaPagesTest.HomePage.Login;
 
 import RosetkaPages.HomePage;
-import WebDriverSettings.StartBrowser;
+import WebDriverStart.WebDriverSettings;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,7 +16,7 @@ import org.openqa.selenium.WebDriver;
 
 public class NegativeLoginTest {
 
-    WebDriver driver = StartBrowser.startWebDriver("firefox");
+    WebDriver driver = WebDriverSettings.startWebDriver("firefox");
     
     @Before
     public void StartTest(){

@@ -2,7 +2,7 @@
 package RozetkaPagesTest.HomePage.Login;
 
 import RosetkaPages.HomePage;
-import RozetkaPagesTest.HomePage.WebDriverSettings;
+import WebDriverStart.WebDriverSettings;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;

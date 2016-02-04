@@ -4,7 +4,7 @@ package RozetkaPagesTest.HomePage.addToWishList;
 import RosetkaPages.HomePage;
 import RosetkaPages.SearchPage;
 import RozetkaPagesTest.HomePage.Login.PositiveLoginTest;
-import WebDriverSettings.StartBrowser;
+import WebDriverStart.WebDriverSettings;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Assert;
@@ -17,7 +17,7 @@ import org.openqa.selenium.WebDriver;
 public class AddToWishListAsRegisterUser {
     
     
-    WebDriver driver = StartBrowser.startWebDriver("firefox");
+    WebDriver driver = WebDriverSettings.startWebDriver("firefox");
     
     @Before
     public void StartTest(){

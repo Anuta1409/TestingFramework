@@ -1,15 +1,9 @@
-
 package RosetkaPages;
 
 import PageObjectPattern.GoToOtherWindow;
 import PageObjectPattern.HTMLElements;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 
 
 public class HomePage {
@@ -34,76 +28,26 @@ public class HomePage {
     
     
     public ProfilePage loginGoToProfile(String email, String password){
-        
-        driver.findElement(By.xpath(".//*[@id='header_user_menu_parent']/a")).click();
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        try {
-       
-        //Switch to the Popup Browser Window
-        driver.switchTo().window("¬ход в интернет-магазин");
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-
-        } catch (NoSuchWindowException e) {
-            e.printStackTrace();
-        }
-
-        driver.findElement(By.xpath("*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[2]/input")).sendKeys(email);
-        driver.findElement(By.xpath("*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[1]/input")).sendKeys(password);
-        
-        WebElement checkBox = driver.findElement(By.xpath("*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[1]/label/span"));
-        
-        if (checkBox.isSelected()){
-          driver.findElement(By.xpath("*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[2]/div/span/button")).click();  
-        }else {
-            checkBox.click();
-            driver.findElement(By.xpath("*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[2]/div/span/button")).click();  
-        }
-        
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        
+        HTMLElements.clickOnElement(driver, "byXpath",".//*[@id='header_user_menu_parent']/a");
+        GoToOtherWindow.goToOtherWindow(driver, "¬ход в интернет-магазин");
+        HTMLElements.setTextfield(driver, "byXpath", "*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[2]/input", email, false);
+        HTMLElements.setTextfield(driver, "byXpath", "*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[1]/input", password, false);
+        HTMLElements.RadioAndCheckBoxButtonClick(driver, "byXpath", "*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[1]/label/span");
+        HTMLElements.clickOnElement(driver, "byXpath", "*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[2]/div/span/button");
         return  new ProfilePage(driver);    
     }
     
     public ProfilePage closePopup(){
-        try {
-       
-        //Switch to the Popup Browser Window
-        driver.switchTo().window("—в€жите аккаунт с соцсет€ми");
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-
-        } catch (NoSuchWindowException e) {
-            e.printStackTrace();
-        }
-        driver.findElement(By.xpath(".//*[@id='social_popup']/div/div/a")).click();
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-         
-        try {
-       
-        //Switch to the Popup Browser Window
-        driver.switchTo().window("»нтернет-магазин ROZETKAЩ: фототехника, видеотехника, аудиотехника, компьютеры и компьютерные комплектующие");
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-
-        } catch (NoSuchWindowException e) {
-            e.printStackTrace();
-        }
-           
+        GoToOtherWindow.goToOtherWindow(driver, "—в€жите аккаунт с соцсет€ми");
+        HTMLElements.clickOnElement(driver, "byXpath", ".//*[@id='social_popup']/div/div/a");
+        GoToOtherWindow.goToOtherWindow(driver, "»нтернет-магазин ROZETKAЩ: фототехника, видеотехника, аудиотехника, компьютеры и компьютерные комплектующие");
         return  new ProfilePage(driver);    
     }
     
-   public SearchPage searchField(String searchQuery){
-       driver.findElement(By.xpath(".//*[@id='search']/form/div[1]/div[2]/input")).sendKeys(searchQuery);
-       driver.findElement(By.xpath("*//div[2]/div/div[2]/div[3]/form/span/span")).click();
-   
-       try {
-       
-        //Switch to the Popup Browser Window
-        driver.switchTo().window("»нтернет-магазин ROZETKAЩ: фототехника, видеотехника, аудиотехника, компьютеры и компьютерные комплектующие");
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-
-        } catch (NoSuchWindowException e) {
-            e.printStackTrace();
-        } 
-    
+    public SearchPage searchField(String searchQuery){
+       HTMLElements.setTextfield(driver, "byXpath", ".//*[@id='search']/form/div[1]/div[2]/input",searchQuery,false);
+       HTMLElements.clickOnElement(driver, "byXpath","*//div[2]/div/div[2]/div[3]/form/span/span");
+       GoToOtherWindow.goToOtherWindow(driver,"»нтернет-магазин ROZETKAЩ: фототехника, видеотехника, аудиотехника, компьютеры и компьютерные комплектующие");
        return new SearchPage(driver);
    }
    
@@ -112,18 +56,8 @@ public class HomePage {
        login.loginGoToProfile(email, password);
        login.closePopup();
        login.searchField(searchQuery);
-       driver.findElement(By.xpath(".//*[@id='block_with_goods']/div[1]/div[3]/div[1]/div/div[1]/div[2]/div[6]/div/div/div/form/span/button")).click();
-      
-       try {
-       
-        //Switch to the Popup Browser Window
-        driver.switchTo().window(" орзина");
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-
-        } catch (NoSuchWindowException e) {
-            e.printStackTrace();
-        }
-       
+       HTMLElements.clickOnElement(driver, "byXpath",".//*[@id='block_with_goods']/div[1]/div[3]/div[1]/div/div[1]/div[2]/div[6]/div/div/div/form/span/button");
+       GoToOtherWindow.goToOtherWindow(driver," орзина");
        return new BasketPopup(driver);
        
    }

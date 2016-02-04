@@ -4,7 +4,7 @@ import RosetkaPages.BasketPopup;
 import RosetkaPages.HomePage;
 import RosetkaPages.ProfilePage;
 import RozetkaPagesTest.HomePage.Login.PositiveLoginTest;
-import RozetkaPagesTest.HomePage.WebDriverSettings;
+import WebDriverStart.WebDriverSettings;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;

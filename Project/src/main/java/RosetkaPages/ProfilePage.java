@@ -1,7 +1,6 @@
-
 package RosetkaPages;
 
-import org.openqa.selenium.By;
+import PageObjectPattern.HTMLElements;
 import org.openqa.selenium.WebDriver;
 
 
@@ -14,12 +13,12 @@ public class ProfilePage {
     }
     
     public ProfilePage goToProfile(){
-        driver.findElement(By.xpath(".//*[@id='header_user_menu_parent']/a")).click();
+        HTMLElements.clickOnElement(driver, "byXpath", ".//*[@id='header_user_menu_parent']/a");
         return new ProfilePage(driver);
     }
     
      public BasketPopup goToBacketPage(){
-         driver.findElement(By.xpath("html/body/div[1]/div/div/div/nav/ul/li[4]/a/span")).click();
-         return new BasketPopup(driver);
+        HTMLElements.clickOnElement(driver, "byXpath", "html/body/div[1]/div/div/div/nav/ul/li[4]/a/span");
+        return new BasketPopup(driver);
      }
 }

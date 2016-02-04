@@ -1,5 +1,5 @@
 
-package RozetkaPagesTest.HomePage;
+package WebDriverStart;
 
 
 import org.openqa.selenium.WebDriver;

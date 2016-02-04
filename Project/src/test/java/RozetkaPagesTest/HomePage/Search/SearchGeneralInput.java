@@ -2,7 +2,7 @@ package RozetkaPagesTest.HomePage.Search;
 
 import RosetkaPages.HomePage;
 import RozetkaPagesTest.HomePage.Login.PositiveLoginTest;
-import RozetkaPagesTest.HomePage.WebDriverSettings;
+import WebDriverStart.WebDriverSettings;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;

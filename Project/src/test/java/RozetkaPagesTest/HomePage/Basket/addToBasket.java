@@ -1,10 +1,9 @@
 package RozetkaPagesTest.HomePage.Basket;
 
 import RosetkaPages.BasketPopup;
-import RosetkaPages.GoodsPage;
 import RosetkaPages.HomePage;
 import RozetkaPagesTest.HomePage.Login.PositiveLoginTest;
-import RozetkaPagesTest.HomePage.WebDriverSettings;
+import WebDriverStart.WebDriverSettings;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -39,7 +38,7 @@ public class addToBasket {
     public void addToBacketPage(){
         HomePage homePage = new HomePage(driver);
         BasketPopup basket = homePage.addToBasket("chumaktest14091991@gmail.com", "12345678","iPhone");
-        basket.GoToPopup();
+        
         Assert.assertTrue(driver.findElement(By.xpath(".//*[@id='cart-popup']/div/div[1]/div[2]/div/div[2]/div[2]/div[1]/a")).getText().contains("iPhone"));
     }
     

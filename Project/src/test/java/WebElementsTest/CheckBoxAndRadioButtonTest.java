@@ -3,19 +3,17 @@ package WebElementsTest;
 import PageObjectPattern.GoToOtherWindow;
 import PageObjectPattern.HTMLElements;
 import RozetkaPagesTest.HomePage.Login.PositiveLoginTest;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebDriver;
 
 public class CheckBoxAndRadioButtonTest {
     
-    WebDriver driver = WebDriverSettings.StartBrowser.startWebDriver("chrome");
+    WebDriver driver = WebDriverStart.WebDriverSettings.startWebDriver("chrome");
             
     @Before
     public void setUrlTestPositive(){
@@ -36,16 +34,13 @@ public class CheckBoxAndRadioButtonTest {
         HTMLElements.RadioAndCheckBoxButtonClick(driver, "name", "remember");
     }
      
-//    @After
-//    public void CloseBrowser(){
-//        try {
-//            Thread.sleep(8000);
-//        } catch (InterruptedException ex) {
-//            Logger.getLogger(PositiveLoginTest.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        driver.quit();
-//    }
-//    
-    
-    
+    @After
+    public void CloseBrowser(){
+        try {
+            Thread.sleep(8000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PositiveLoginTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        driver.quit();
+    } 
 }
