@@ -1,12 +1,15 @@
 package PageObjectPattern;
 
 import WebDriverSettings.StartBrowser;
+import java.util.ArrayList;
+import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -27,8 +30,8 @@ public class HTMLElements {
     }
 
     //Access tothe webElements
-    enum webElementAccess{byXpath, byID, byClass};
-    public static WebElement getHTMLElement(String by, String value) {
+    enum webElementAccess{byXpath, byID, byClass, name};
+    public static WebElement getHTMLElement(WebDriver driver, String by, String value) {
 
         webElementAccess access = webElementAccess.valueOf(by);
         WebElement el;
@@ -42,37 +45,44 @@ public class HTMLElements {
             case byClass: {
                 el =  driver.findElement(By.className(value));
             }break;
-            default:
+            case name: {
+                    el = driver.findElement(By.name(value));
+            } break;
+            default:{
                 System.out.println("webElementAccess not found");
                 el = null;
+            }
         }
         return el;
     }
 
-    //метод проверки на наличие необходимого элемента на странице
-    public static boolean isElementPresent(String by, String value) { //value - xpath,id,class
+    //method check is element present on the page
+    public static boolean isElementPresent(WebDriver driver,String by, String value) { //value - xpath,id,class
         try {
-            WebElement e = getHTMLElement(by,value);
+            WebElement e = getHTMLElement(driver, by, value);
             return (e != null);
         } catch (NoSuchElementException e) {
             return false;
         }
     }
-
-//    public static boolean isElementPresent(WebDriver webDriver,By by) {
-//        try {
-//            WebElement e = webDriver.findElement(by);
-//            return (e != null);
-//        } catch (NoSuchElementException e) {
-//            return false;
-//        }
-//    }
-
-    // установка элемента "текстовое поле" если он присутствует на странице
-    public static void setTextfield(String by, String value, String fieldValue, boolean clear) {
+    
+    //Click on the necessary field if WebElement present
+    public static void clickOnElement(WebDriver driver, String by, String value){
         try {
-            if (isElementPresent(by,value)) {
-                WebElement element = HTMLElements.getHTMLElement(by, value);
+            if (isElementPresent(driver, by,value)) {
+                WebElement element = HTMLElements.getHTMLElement(driver, by, value);
+                element.click();
+            } 
+        }catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    // Set text field
+    public static void setTextfield(WebDriver driver, String by, String value, String fieldValue, boolean clear) {
+        try {
+            if (isElementPresent(driver, by,value)) {
+                WebElement element = HTMLElements.getHTMLElement(driver, by, value);
                 if (clear == true) {
                     element.clear();
                     element.sendKeys(fieldValue);
@@ -86,37 +96,52 @@ public class HTMLElements {
     }
 
 
-//    // метод для установки радиокнопки, если она доступна+ необходимо реализовать проверку что радиокнопка установленна и одна единственная
-//    public static void RadioButtonClick(WebDriver webDriver, String by, String value){
-//        // radio button has unique value???
-//           HTMLElements.getHTMLElement(by, value).isEnabled();
-//           HTMLElements.getHTMLElement(by, value).click();
-//    }
-//
-//
-//    // метод для установки чекбокса, если он доступен+проверка, что чекбокс установлен (не знаю как реализовать множественный выбор)
-//    public static void CheckBoxClick(WebDriver webDriver,String by, String value){
-//        if ((HTMLElements.getHTMLElement(webDriver, by,value)).isEnabled()){
-//             HTMLElements.getHTMLElement(webDriver, by, value).click();
-//             Assert.assertTrue(HTMLElements.getHTMLElement(webDriver, by, value).isSelected());
-////          Or this one???
-////                if (HTMLElements.getHTMLElement(webDriver, by, value).isSelected()) {
-////                    System.out.println("CheckBox is selected");
-////            }else {
-////                    System.out.println("CheckBox is not selected");
-////            }
-//        }
-//    }
-//
-//
-//    // выбор значения из дропдаун елемента+(не знаю как сделать множественный выбор если он возможен)
-//    public  static void selectFromDropDownList(WebDriver webDriver, String by, String value,String dropDownValue){
-//        Select droplist1 = new Select(HTMLElements.getHTMLElement(webDriver,by,value));
-//        droplist1.selectByVisibleText(dropDownValue);
-//        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//
-//    }
+    // Set RadioButton if it is Enable
+    public static void RadioAndCheckBoxButtonClick(WebDriver driver, String by, String value){
+        // Store all the elements of same category in the list of WebLements
+        try {
+            if (isElementPresent(driver, by,value)) {
+                WebElement radioButton =  HTMLElements.getHTMLElement(driver, by, value);
+                boolean bValue = false;
+                bValue = radioButton.isSelected();
+                if(!bValue){
+                    radioButton.click();
+                    }
+                }
+            }catch (NoSuchElementException e) {
+                 e.printStackTrace();
+        }
+    }
 
+    // DropDown list
+    public  static void selectFromDropDownList(WebDriver driver, String by, String value,String dropDownValue){
+         try {
+            if (isElementPresent(driver, by,value)) {
+                Select droplist1 = new Select(HTMLElements.getHTMLElement(driver,by,value));
+                droplist1.selectByVisibleText(dropDownValue);
+                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            }
+         }catch (NoSuchElementException e) {
+             e.printStackTrace();
+        }
+    }
+    
+    
+//     List  oRadioButton = driver.findElements(By.name("toolsqa"));
+//     // Create a boolean variable which will hold the value (True/False)
+//     boolean bValue = false;
+//     // This statement will return True, in case of first Radio button is selected
+//     bValue = oRadioButton.get(0).isSelected();
+//    // This will check that if the bValue is True means if the first radio button is selected
+//     if(bValue = true){
+//        // This will select Second radio button, if the first radio button is selected by default
+//        oRadioButton.get(1).click();    
+//    }else{
+//    // If the first radio button is not selected by default, the first will be selected
+//        oRadioButton.get(0).click();
+//     }
+
+    
         
     }
 

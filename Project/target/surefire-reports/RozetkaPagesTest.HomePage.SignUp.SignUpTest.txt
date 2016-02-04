@@ -1,16 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: RozetkaPagesTest.HomePage.SignUp.SignUpTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 36.247 sec <<< FAILURE!
-PositiveSignUpTest(RozetkaPagesTest.HomePage.SignUp.SignUpTest)  Time elapsed: 26.535 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 66.791 sec <<< FAILURE!
+PositiveSignUpTest(RozetkaPagesTest.HomePage.SignUp.SignUpTest)  Time elapsed: 40.04 sec  <<< ERROR!
 org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":".//*[@id='personal_information']/header/h1"}
-Command duration or timeout: 152 milliseconds
+Command duration or timeout: 358 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.49.0', revision: '365eeb44deba2067b1761c8862ef21d55250e063', time: '2016-01-13 11:57:39'
 System info: host: 'Ann', ip: '192.168.0.56', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
 Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=43.0.4, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: d7e3b097-72ec-43b8-89de-3dfdbc974f3d
+Session ID: 0b172167-6430-405d-8604-46dcd24b633d
 *** Element info: {Using=xpath, value=.//*[@id='personal_information']/header/h1}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -60,8 +60,8 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '2.49.0', revision: '365eeb44deba2067b1761c8862ef21d55250e063', time: '2016-01-13 11:57:39'
 System info: host: 'Ann', ip: '192.168.0.56', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
 Driver info: driver.version: unknown
-	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Anna/AppData/Local/Temp/anonymous9103536964024450634webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10675)
-	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Anna/AppData/Local/Temp/anonymous9103536964024450634webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10684)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Anna/AppData/Local/Temp/anonymous9103536964024450634webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12551)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Anna/AppData/Local/Temp/anonymous9103536964024450634webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12556)
-	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Anna/AppData/Local/Temp/anonymous9103536964024450634webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12498)
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Anna/AppData/Local/Temp/anonymous1981730518753257038webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10675)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Anna/AppData/Local/Temp/anonymous1981730518753257038webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10684)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Anna/AppData/Local/Temp/anonymous1981730518753257038webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12551)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Anna/AppData/Local/Temp/anonymous1981730518753257038webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12556)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Anna/AppData/Local/Temp/anonymous1981730518753257038webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12498)

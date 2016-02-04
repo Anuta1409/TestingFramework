@@ -1,6 +1,8 @@
 
 package RosetkaPages;
 
+import PageObjectPattern.GoToOtherWindow;
+import PageObjectPattern.HTMLElements;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,32 +20,21 @@ public class HomePage {
     }
     
     public HomePage openHomePage(String url){
-        driver.get(url);
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+        HTMLElements.setUrl(driver, url);
         return new HomePage(driver);
     }
     
     public SignUp goToSignUp(){
-        driver.findElement(By.xpath(".//*[@id='header_user_menu_parent']/a")).click();
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        try {
-            
-        //Switch to the Popup Browser Window
-        driver.switchTo().window("¬ход в интернет-магазин");
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-
-        } catch (NoSuchWindowException e) {
-            e.printStackTrace();
-        }
-
-        driver.findElement(By.xpath("*//div[2]/div/div[1]/div[1]/div[3]//form/div[2]/div[4]/a")).click(); 
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+        HTMLElements.clickOnElement(driver, "byXpath", ".//*[@id='header_user_menu_parent']/a");
+        GoToOtherWindow.goToOtherWindow(driver, "¬ход в интернет-магазин");
+        HTMLElements.clickOnElement(driver,"byXpath","*//div[2]/div/div[1]/div[1]/div[3]//form/div[2]/div[4]/a");
         return  new SignUp(driver);    
     }
     
     
     
     public ProfilePage loginGoToProfile(String email, String password){
+        
         driver.findElement(By.xpath(".//*[@id='header_user_menu_parent']/a")).click();
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         try {

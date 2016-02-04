@@ -22,7 +22,7 @@
                 left: 0;
                 margin: auto;
                 background:#470074;
-                border-top: 30px solid #C84AFF;
+/*                border-top: 30px solid #C84AFF;*/
                 box-shadow:0pt 2px 20px #080407;
                 border-radius: 20px;
               
@@ -43,7 +43,7 @@
             padding: 0px 15px;
             height:40px;
             width:300px;
-            background: #C882FF;
+            background: #ffffff;
             border: none;
             border-radius: 20px; 
             color: black;
