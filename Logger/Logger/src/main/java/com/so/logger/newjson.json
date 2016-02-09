@@ -1,0 +1,26 @@
+//Test_suite
+{
+  tests:[
+       {//test_case
+          name:someName,
+          test_suite_id: someid,
+          steps:[
+             {//Step
+                 id: someStepID,
+                 stepName: nameS,
+                 testCaID: id,
+                 paremeters:[
+                     {//parameter
+                         id:id,
+                         stepID:stID,
+                         name: name,
+                         type:type,
+                         value:val
+                     } 
+                 ]
+             } 
+          ]
+      }
+  ],
+  result:result
+}
