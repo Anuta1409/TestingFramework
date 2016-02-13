@@ -1,5 +1,6 @@
 package com.so.log.elements;
 
+import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -7,7 +8,7 @@ public class TestCases {
     private int id;
     private int testSuiteID;
     private String testCaseName;
-    Steps steps;
+    ArrayList<Steps> steps;//list steps
 
     public TestCases() {
     }
@@ -16,7 +17,6 @@ public class TestCases {
         this.id = id;
         this.testSuiteID = testSuiteID;
         this.testCaseName = testCaseName;
-        this.steps = steps;
     }
 
     public int getId() {
@@ -43,11 +43,11 @@ public class TestCases {
         this.testCaseName = testCaseName;
     }
 
-    public Steps getSteps() {
+    public ArrayList<Steps> getSteps() {
         return steps;
     }
 
-    public void setSteps(Steps steps) {
+    public void setSteps(ArrayList<Steps> steps) {
         this.steps = steps;
     }
     

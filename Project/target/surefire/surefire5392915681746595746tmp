@@ -1,0 +1,7 @@
+#surefire
+#Thu Feb 11 00:05:49 EET 2016
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.1\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=D\:\\Ukrainian_IT_School\\FinalWork\\Project
+localRepository=C\:\\Users\\Anna\\.m2\\repository
+basedir=D\:\\Ukrainian_IT_School\\FinalWork\\Project
+test=RozetkaPagesTest.HomePage.Basket.addToBasket

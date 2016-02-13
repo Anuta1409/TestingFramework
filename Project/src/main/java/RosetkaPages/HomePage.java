@@ -30,10 +30,10 @@ public class HomePage {
     public ProfilePage loginGoToProfile(String email, String password){
         HTMLElements.clickOnElement(driver, "byXpath",".//*[@id='header_user_menu_parent']/a");
         GoToOtherWindow.goToOtherWindow(driver, "¬ход в интернет-магазин");
-        HTMLElements.setTextfield(driver, "byXpath", "*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[2]/input", email, false);
-        HTMLElements.setTextfield(driver, "byXpath", "*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[1]/input", password, false);
-        HTMLElements.RadioAndCheckBoxButtonClick(driver, "byXpath", "*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[1]/label/span");
-        HTMLElements.clickOnElement(driver, "byXpath", "*//div[2]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[2]/div/span/button");
+        HTMLElements.setTextfield(driver, "byXpath", "*//div[3]/div/div[1]/div[1]/div[3]//form/div[1]/div[2]/input", email, false);
+        HTMLElements.setTextfield(driver, "byXpath", "*//div[3]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[1]/input", password, false);
+        HTMLElements.RadioAndCheckBoxButtonClick(driver, "byXpath", "*//div[3]/div/div[1]/div[1]/div[3]/div/div/div/form/div[1]/div[3]/div[1]/div[1]/label/span");
+        HTMLElements.clickOnElement(driver, "byXpath", "*//div[3]/div/div[1]/div[1]/div[3]//form/div[1]/div[3]/div[1]/div[2]/div/span/button");
         return  new ProfilePage(driver);    
     }
     
@@ -46,7 +46,7 @@ public class HomePage {
     
     public SearchPage searchField(String searchQuery){
        HTMLElements.setTextfield(driver, "byXpath", ".//*[@id='search']/form/div[1]/div[2]/input",searchQuery,false);
-       HTMLElements.clickOnElement(driver, "byXpath","*//div[2]/div/div[2]/div[3]/form/span/span");
+       HTMLElements.clickOnElement(driver, "byXpath","*//div[3]/div/div[2]/div[3]/form/span/span");
        GoToOtherWindow.goToOtherWindow(driver,"»нтернет-магазин ROZETKAЩ: фототехника, видеотехника, аудиотехника, компьютеры и компьютерные комплектующие");
        return new SearchPage(driver);
    }

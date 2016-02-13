@@ -7,6 +7,7 @@ import RozetkaPagesTest.HomePage.Login.PositiveLoginTest;
 import WebDriverStart.WebDriverSettings;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,24 +16,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class DeleteFromBasket {
+public class DeleteFromBasket{
     WebDriver driver = WebDriverSettings.startWebDriver("firefox");
-   
+
     @Before
     public void StartTest(){
         HomePage homePage = new HomePage(driver);
         homePage.openHomePage("http://rozetka.com.ua/");
     }
     
-   @After
-    public void CloseBrowser(){
-        try {
-            Thread.sleep(8000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(PositiveLoginTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        driver.quit();
-    } 
+//   @After
+//    public void CloseBrowser(){
+//        try {
+//            Thread.sleep(8000);
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(PositiveLoginTest.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        driver.quit();
+//    } 
     
      @Test
     public void addToBacketPage(){

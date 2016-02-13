@@ -3,6 +3,8 @@
   <persistence-unit name="com.anna_WebTestingFrame_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.anna.webtestingframe.web.domain.Users</class>
+    <class>com.anna.webtestingframe.web.domain.TestSuite</class>
+    <class>com.anna.webtestingframe.web.domain.TestCases</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/testdata?zeroDateTimeBehavior=convertToNull"/>

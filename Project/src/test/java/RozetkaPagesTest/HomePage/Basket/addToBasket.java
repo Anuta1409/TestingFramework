@@ -6,6 +6,7 @@ import RozetkaPagesTest.HomePage.Login.PositiveLoginTest;
 import WebDriverStart.WebDriverSettings;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,7 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class addToBasket {
+public class addToBasket{
     
     WebDriver driver = WebDriverSettings.startWebDriver("firefox");
    

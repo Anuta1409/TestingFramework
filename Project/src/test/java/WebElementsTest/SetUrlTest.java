@@ -2,6 +2,7 @@ package WebElementsTest;
 
 import PageObjectPattern.HTMLElements;
 import RozetkaPagesTest.HomePage.Login.PositiveLoginTest;
+import WebDriverStart.WebDriverSettings;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -11,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 
 public class SetUrlTest {
     
-    WebDriver driver = WebDriverSettings.StartBrowser.startWebDriver("chrome");
+     WebDriver driver = WebDriverSettings.startWebDriver("chrome");
    
     
     @Test

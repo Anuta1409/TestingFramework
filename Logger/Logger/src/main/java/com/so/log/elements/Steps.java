@@ -1,5 +1,6 @@
 package com.so.log.elements;
 
+import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -7,12 +8,13 @@ public class Steps {
     private int id;
     private int testCaseID;
     private String stepName;
-    Parameter parameters;
+    HashMap<String, Object> parameters;
+    //Parameter parameters;//list parameters
 
     public Steps() {
     }
 
-    public Steps(int id, int testCaseID, String stepName, Parameter parameters) {
+    public Steps(int id, int testCaseID, String stepName, HashMap parameters) {
         this.id = id;
         this.testCaseID = testCaseID;
         this.stepName = stepName;
@@ -43,25 +45,25 @@ public class Steps {
         this.stepName = stepName;
     }
 
-    public Parameter getParameters() {
+    public HashMap getParameters() {
         return parameters;
     }
 
-    public void setParameters(Parameter parameters) {
+    public void setParameters(HashMap parameters) {
         this.parameters = parameters;
     }
     
     public JSONObject getJSON(){
        JSONObject obj = new JSONObject();
-       Parameter param = new Parameter();
+       HashMap param = new HashMap();
        JSONArray parameters = new JSONArray();
        
        obj.put("id", this.id);
        obj.put("testCaseID", this.testCaseID);
        obj.put("stepName", this.stepName);
-       parameters.put(param.getJSON());
+       parameters.put(new JSONObject(param));
        obj.put("parameters", parameters);
-
+       
        return obj;
     }
 }

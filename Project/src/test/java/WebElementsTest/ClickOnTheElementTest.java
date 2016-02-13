@@ -2,6 +2,7 @@ package WebElementsTest;
 
 import PageObjectPattern.HTMLElements;
 import RozetkaPagesTest.HomePage.Login.PositiveLoginTest;
+import WebDriverStart.WebDriverSettings;
 import com.google.common.collect.HashMultiset;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,11 +13,12 @@ import org.openqa.selenium.WebDriver;
 
 
 public class ClickOnTheElementTest {
-    WebDriver driver = WebDriverSettings.StartBrowser.startWebDriver("chrome");
+    WebDriver driver = WebDriverSettings.startWebDriver("chrome");
+
 
     
     @Before
-     public void setUrlTestPositive(){
+    public void setUrlTestPositive(){
         HTMLElements.setUrl(driver, "http://rozetka.com.ua/");
     }
      

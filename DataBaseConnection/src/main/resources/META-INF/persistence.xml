@@ -3,6 +3,8 @@
   <persistence-unit name="com.anna_DataBaseConnection_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.anna.databaseconnection.domain.entity.Steps</class>
+    <class>com.anna.databaseconnection.domain.entity.TestSuite</class>
+    <class>com.anna.databaseconnection.domain.entity.TestCases</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/testdata?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

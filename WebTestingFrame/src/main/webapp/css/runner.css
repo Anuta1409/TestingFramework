@@ -1,0 +1,106 @@
+            body{
+                margin-top: 30px;
+                padding: 0;
+                background-image: url(../css/img/background-design.jpg);
+            }
+            
+            h1{
+                text-align:center;
+                font-family: Arial; 
+                font-style: normal; 
+                color: white; 
+                font-size: 20px;
+            }
+            
+                        
+            input{
+                padding: 0px 15px;
+                height:25px;
+                width:150px;
+                background: #ffffff;
+                border: none;
+                border-radius: 20px; 
+                color: black;
+                font-size: 20px;
+                background: -webkit-gradient(linear, 0 0, 0 100%, from(#602E6F), to(#D0AFDA));
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#602E6F', endColorstr='#D0AFDA');
+                font-style: normal;
+                font-weight: bold;
+                font-size: 17px;
+                
+            }
+             input:hover{
+                background: #D0AFDA;
+                box-shadow:0pt 2px 20px #B34EE9;
+            }
+            
+    table {
+        width: 70%; /* Ширина таблицы */
+        margin: auto; /* Выравниваем таблицу по центру окна  */
+   }
+   td {
+        text-align: center; /* Выравниваем текст по центру ячейки */
+   }
+            
+  .table_runner {
+/*        border-collapse: collapse;*/
+        border-left: 3px solid #470074;
+        border-right: 3px solid #470074;
+        border-bottom: 3px solid #470074;
+        font-family: "Arial";
+        font-weight: 700;
+ }
+.table_runner caption {
+        background: #470074; 
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 2px  4px 0 rgba(0,0,0,.3);
+        color: white;
+        font-family: "Arial";
+        font-weight: bold;
+        font-size: 26px;
+        text-align: center;
+        margin: 0;
+}
+.table_runner td, .table_runner th {
+  padding: 10px;
+}
+.table_runner th {
+  text-align: left;
+  font-size: 18px;
+}
+
+ tr {
+  background: #F4D5FF;
+}
+
+.head{
+   background: #D58EFF;
+   font-weight: bold; 
+  
+}
+
+.table_runner td:last-of-type {
+  text-align: center;
+}
+
+
+/*.table_runner a {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #F79361;
+  box-shadow: 2px 2px 0 0 #a22800;
+  position: relative;
+}
+.table_runner a:hover {
+  box-shadow: none;
+  top: 2px;
+  left: 2px;
+}*/
+                          
+             
+         
+            
+       
+

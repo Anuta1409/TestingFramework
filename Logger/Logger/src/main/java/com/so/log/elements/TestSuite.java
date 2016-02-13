@@ -28,7 +28,7 @@ public class TestSuite {
        
        testCases.put(testCase.getJSON());
        obj.put("testCases", testCases);
-       System.out.print(obj.toString());
+       System.out.println(obj.toString());
        return obj;
      }
     

@@ -50,7 +50,7 @@
             <h1 >Log in</h1>
             <form method ="post" action="login">
                 <div>
-                    <input type="text" name="login" required="required" placeholder="User Name or mymail@mail.com" id = "login"/>
+                    <input type="text" name="login" required="required" placeholder="User Name or mail@mail.com" id = "login"/>
                 </div>
                 <div>
                     <input type="password" name="password" required="required"  placeholder="Password" id ="password" />  

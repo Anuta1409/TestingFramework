@@ -13,7 +13,7 @@
         </div>
         
         <div class = "button_error">
-            <input type="submit" value="Submit" />    
+            <input type="submit" value="Submit" onclick='history.back()'/>    
         </div>
         
     </body>
