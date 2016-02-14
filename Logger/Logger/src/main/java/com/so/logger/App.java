@@ -13,7 +13,7 @@ public class App {
             TestResultLog t = new TestResultLog();
             //выполняем ряд тестов, передавая результирующий объект
         }
-        logger.writeLog(System.currentTimeMillis()+".log");
+//        logger.writeLog(System.currentTimeMillis()+".log");
     }
     
 }

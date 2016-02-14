@@ -11,7 +11,7 @@ public class main {
     }
     public static void main(String[] args) {
         TestSuite t = new TestSuite();
-        t.getJSON();
+  //      t.getJSON();
 //        for(int i= 0; i <10; i++){
 //            createTest();
 //            Steps s1 = new Steps();//with name step1

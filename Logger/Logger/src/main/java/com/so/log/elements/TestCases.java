@@ -8,12 +8,12 @@ public class TestCases {
     private int id;
     private int testSuiteID;
     private String testCaseName;
-    ArrayList<Steps> steps;//list steps
+    //ArrayList<Steps> steps;//list steps
 
     public TestCases() {
     }
 
-    public TestCases(int id, int testSuiteID, String testCaseName, Steps steps) {
+    public TestCases(int id, int testSuiteID, String testCaseName,Steps step) {
         this.id = id;
         this.testSuiteID = testSuiteID;
         this.testCaseName = testCaseName;
@@ -43,13 +43,13 @@ public class TestCases {
         this.testCaseName = testCaseName;
     }
 
-    public ArrayList<Steps> getSteps() {
-        return steps;
-    }
-
-    public void setSteps(ArrayList<Steps> steps) {
-        this.steps = steps;
-    }
+//    public ArrayList<Steps> getSteps() {
+//        return steps;
+//    }
+//
+//    public void setSteps(ArrayList<Steps> steps) {
+//        this.steps = steps;
+//    }
     
     public JSONObject getJSON(){
        JSONObject obj = new JSONObject();
@@ -61,7 +61,7 @@ public class TestCases {
        obj.put("testCaseName", this.testCaseName);
        
        steps.put(step.getJSON());
-       obj.put("steps", steps);
+       //obj.put("steps", steps);
        
              
        return obj;
